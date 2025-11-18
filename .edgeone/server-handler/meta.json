@@ -1,0 +1,47 @@
+{
+  "frameworkRoutes": [
+    {
+      "path": "/",
+      "isStatic": true
+    },
+    {
+      "path": "/ssg",
+      "isStatic": true
+    },
+    {
+      "path": "/isr",
+      "isStatic": false
+    },
+    {
+      "path": "/ssr",
+      "ssr": true,
+      "isStatic": false
+    },
+    {
+      "path": "/streaming",
+      "ssr": true,
+      "isStatic": false
+    },
+    {
+      "path": "/api/isr-content"
+    },
+    {
+      "path": "/api/ssr-data"
+    },
+    {
+      "path": "/api/streaming-data"
+    },
+    {
+      "path": "/__nuxt_error"
+    },
+    {
+      "path": "^\\/__nuxt_island\\/.[^\\/]*$"
+    },
+    {
+      "path": ".*-ssr-functions/:path*"
+    }
+  ],
+  "conf": {
+    "ssr404": true
+  }
+}
