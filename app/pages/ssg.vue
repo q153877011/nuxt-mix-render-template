@@ -81,7 +81,7 @@
                 <div class="stat-icon">⚡</div>
                 <div class="stat-content">
                   <strong>Lightning Fast</strong>
-                  <p>First load time typically < 100ms</p>
+                  <p>First load time typically &lt; 100ms</p>
                 </div>
               </div>
               <div class="stat-item">
@@ -272,7 +272,8 @@ useHead({
 })
 
 // Build time (generated at build time, staticized into the page)
-const buildTime = new Date().toLocaleString('en-US', {
+const config = useRuntimeConfig()
+const buildTime = new Date(config.public.buildTime as string).toLocaleString('en-US', {
   year: 'numeric',
   month: '2-digit',
   day: '2-digit',

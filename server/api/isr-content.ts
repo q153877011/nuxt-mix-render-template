@@ -5,9 +5,9 @@ export default defineEventHandler(async (event) => {
   // Simulate content fetching delay
   await new Promise(resolve => setTimeout(resolve, 200))
   
-  // Get current time for simulating content update time
+  // Get current time as the real data generation time
   const now = new Date()
-  const lastUpdated = new Date(now.getTime() - (Math.floor(Math.random() * 24) * 3600000))
+  const lastUpdated = now // Use current time as real update time
   
   // Mock article/blog content
   const articles = [
@@ -164,14 +164,14 @@ export default defineEventHandler(async (event) => {
     statistics,
     metadata: {
       lastUpdated: lastUpdated.toISOString(),
-      nextUpdate: new Date(now.getTime() + 3600000).toISOString(), // 1 hour later
+      nextUpdate: new Date(now.getTime() + 5000).toISOString(), // 5 seconds later (matching SWR config)
       renderMode: 'ISR',
       cacheStatus: 'fresh',
-      revalidateAfter: 3600 // Revalidate after 1 hour
+      // revalidateAfter: 5 // Revalidate after 5 seconds (matching SWR config)
     },
     performance: {
       generatedAt: now.getTime(),
-      dataFreshness: Math.floor((now.getTime() - lastUpdated.getTime()) / 1000 / 60) // minutes
+      dataFreshness: 0 // Always 0 since lastUpdated is now the current time
     }
   }
 })

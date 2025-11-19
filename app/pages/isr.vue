@@ -168,7 +168,7 @@ useHead({
 })
 
 // Get ISR content data
-const contentData = await $fetch('/api/isr-content')
+const { data: contentData } = await useAsyncData('isr-content', () => $fetch('/api/isr-content'))
 console.log('ISR Content Data:', contentData)
 
 // Format time
@@ -179,12 +179,14 @@ const formatTime = (dateString: string) => {
     month: '2-digit',
     day: '2-digit',
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
+    second: '2-digit',
+    timeZone: 'UTC' 
   })
 }
 
 // Format number
-const formatNumber = (num: number) => {
+const formatNumber = (num?: number) => {
   if (!num) return '0'
   return num.toLocaleString('en-US')
 }

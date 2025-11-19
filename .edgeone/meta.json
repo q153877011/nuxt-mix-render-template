@@ -19,7 +19,8 @@
     },
     {
       "path": "/isr",
-      "isStatic": false
+      "isStatic": false,
+      "isr": 5
     },
     {
       "path": "/ssr",

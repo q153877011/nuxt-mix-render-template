@@ -25,5 +25,13 @@ compatibilityDate: '2025-07-15',
     strict: true
     // typeCheck: true // Temporarily disabled to avoid additional dependencies
   },
+  
+  // Runtime Configuration
+  runtimeConfig: {
+    public: {
+      buildTime: process.env.BUILD_TIME || new Date().toISOString()
+    }
+  },
+  
   nitro: {}
 })

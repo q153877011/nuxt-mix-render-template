@@ -204,19 +204,6 @@ npm run build
 npm run preview
 ```
 
-### Docker 部署
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 3000
-CMD ["npm", "run", "preview"]
-```
-
 ## 🛠️ 技术栈
 
 - **框架**：[Nuxt.js 4.1.3](https://nuxt.com/)
